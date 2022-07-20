@@ -46,12 +46,30 @@ def jweAnBouk():
 
 
 def hangman():
+    global i
+    global repons
+    global afichaj
+    global chwa
+    global mots
+    global chwazi
     global konte
     global afichaj
     global mots
     global rekipere
     global jwet_la
-    
+    limit = 7
+    chwazi = random.choice(list(mots.keys()))
+    chwa = mots[chwazi]
+    for i in chwazi:
+        print(afichaj)
+    repons = input("Antre mo plzz : " + afichaj)
+    if len(repons) >= 2 or len(repons) == 0:
+        print("saw tape a envalid, tanpri tape yon sel let :")
+        hangman()
+
+
+
+
 
 
 
@@ -74,13 +92,13 @@ def hangman():
 #     print('*', end='')
 
 
-repons = input('Antre let ki manke a :')
-repons = repons.strip()
-while len(repons.strip()) >= 2 or len(repons.strip()) == 0:
-    print("saw tape a envalid, tanpri tape yon sel let :")
-    repons = input('Antre let ki manke a :')
-else:
-    print('ok')
+# repons = input('Antre let ki manke a :')
+# repons = repons.strip()
+# while len(repons.strip()) >= 2 or len(repons.strip()) == 0:
+#     print("saw tape a envalid, tanpri tape yon sel let :")
+#     repons = input('Antre let ki manke a :')
+# else:
+#     print('ok')
 
 # if repons in g:
 #     rekipere.extend([repons])
