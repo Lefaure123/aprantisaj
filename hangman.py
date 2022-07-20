@@ -16,6 +16,8 @@ time.sleep(3)
 #     global b
 #     global repons
 def main():
+    global mots
+    global longueur
     global jwet_la
     global konte
     global afichaj
@@ -67,23 +69,79 @@ def hangman():
         print("saw tape a envalid, tanpri tape yon sel let :")
         hangman()
 
+    elif repons in mots:
+        rekipere.extend([repons])
+        index = mots.find(repons)
+        mots = mots[:index] + "*" + mots[index + 1:]
+        afichaj = afichaj[:index] + mots + afichaj[index + 1:]
+        print(afichaj + '\n')
+
+    elif mots in rekipere:
+        print("*Eseye tape yon lot let*")
+
+    else:
+        konte += 1
+
+        if konte == 1:
+            time.sleep(1)
+            print('Move mo' + str(limit - konte) + "chans ki retew")
+
+        elif konte == 2:
+            time.sleep(1)
+            print('Move mo' + str(limit - konte) + "chans ki retew")
+
+        elif konte == 3:
+            time.sleep(1)
+            print('Move mo' + str(limit - konte) + "chans ki retew")
+
+        elif konte == 4:
+            time.sleep(1)
+            print('Move mo' + str(limit - konte) + "chans ki retew")
+
+        elif konte == 5:
+            time.sleep(1)
+            print('Move mo' + str(limit - konte) + "chans ki retew")
+
+        elif konte == 6:
+            time.sleep(1)
+            print('Move mo' + str(limit - konte) + "chans ki retew")
+
+        elif konte == 7:
+            time.sleep(1)
+            print('Move mo' + str(limit - konte) + "chans ki retew")
+
+        if mots == '*' * longueur:
+            print("Bravo, ou just byen reflchi, ou jwenn mo a ")
+            jweAnBouk()
+
+        elif konte != limit:
+            hangman()
+
+main()
+
+
+hangman()
 
 
 
 
 
 
+#  elif guess in word:
+#         already_guessed.extend([guess])
+#         index = word.find(guess)
+#         word = word[:index] + "_" + word[index + 1:]
+#         display = display[:index] + guess + display[index + 1:]
+#         print(display + "\n")
+#
+#     elif guess in already_guessed:
+#         print("Try another letter.\n")
 
-    #     global display
-    #     global word
-    #     global already_guessed
-    #     global play_game
-    #     limit = 5
-    #     guess = input("This is the Hangman Word: " + display + " Enter your guess: \n")
-    #     guess = guess.strip()
-    #     if len(guess.strip()) == 0 or len(guess.strip()) >= 2 or guess <= "9":
-    #         print("Invalid Input, Try a letter\n")
-    #         hangman()
+
+
+
+
+
 
 
 # b = mots[g]
