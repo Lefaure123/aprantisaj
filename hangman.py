@@ -10,11 +10,6 @@ print("Jwet la pral komanse!\n"
 time.sleep(3)
 
 
-# def main():
-#     global mots
-#     global g
-#     global b
-#     global repons
 def main():
     global mots
     global longueur
@@ -36,13 +31,13 @@ def main():
 
 
 def jweAnBouk():
-    global jwet_la
-    jwet_la = input("Ou ta renmen rejwe anko ? W = wi, N = non \n")
-    while jwet_la not in ['W', 'w', 'Y', 'y']:
-        jwet_la = input("Ou ta renmen rejwe anko ? W = wi, N = non \n")
-    if jwet_la == 'w':
+    global jwe
+    jwe = input("Ou ta renmen rejwe anko ? W = wi, N = non \n")
+    while jwe not in ['W', 'w', 'Y', 'y']:
+        jwe = input("Ou ta renmen rejwe anko ? W = wi, N = non \n")
+    if jwe == 'w':
         main()
-    elif jwet_la == 'n':
+    elif jwe == 'n':
         print('*Mesi bokou paskew te patisipe, nap tann ou anko*')
         exit()
 
@@ -62,21 +57,25 @@ def hangman():
     limit = 7
     chwazi = random.choice(list(mots.keys()))
     chwa = mots[chwazi]
+    print(chwa)
     for i in chwazi:
-        print(afichaj)
-    repons = input("Antre mo plzz : " + afichaj)
-    if len(repons) >= 2 or len(repons) == 0:
+        print('*', end='')
+    print()
+    repons = input("Antre mo a let pa let : ")
+    repons = repons.strip()
+    while len(repons.strip()) >= 2 or len(repons.strip()) == 0:
         print("saw tape a envalid, tanpri tape yon sel let :")
-        hangman()
+        repons = input("Antre yon mo a la fwa tanpri : ")
 
-    elif repons in mots:
-        rekipere.extend([repons])
-        index = mots.find(repons)
-        mots = mots[:index] + "*" + mots[index + 1:]
-        afichaj = afichaj[:index] + mots + afichaj[index + 1:]
-        print(afichaj + '\n')
+    if repons in chwazi:
+        
+        # rekipere.extend([repons])
+        # index = chwazi.find(repons)
+        # chwazi = chwazi[:index] + "*" + chwazi[index + 1:]
+        # afichaj = afichaj[:index] + chwazi + afichaj[index + 1:]
+        # print(afichaj + '\n')
 
-    elif mots in rekipere:
+    elif chwazi in rekipere:
         print("*Eseye tape yon lot let*")
 
     else:
@@ -84,7 +83,7 @@ def hangman():
 
         if konte == 1:
             time.sleep(1)
-            print('Move mo' + str(limit - konte) + "chans ki retew")
+            print('Move mo'+str(limit - konte)+'chans ki retew')
 
         elif konte == 2:
             time.sleep(1)
@@ -110,7 +109,7 @@ def hangman():
             time.sleep(1)
             print('Move mo' + str(limit - konte) + "chans ki retew")
 
-        if mots == '*' * longueur:
+        if chwazi == '*' * longueur:
             print("Bravo, ou just byen reflchi, ou jwenn mo a ")
             jweAnBouk()
 
@@ -121,50 +120,6 @@ main()
 
 
 hangman()
-
-
-
-
-
-
-#  elif guess in word:
-#         already_guessed.extend([guess])
-#         index = word.find(guess)
-#         word = word[:index] + "_" + word[index + 1:]
-#         display = display[:index] + guess + display[index + 1:]
-#         print(display + "\n")
-#
-#     elif guess in already_guessed:
-#         print("Try another letter.\n")
-
-
-
-
-
-
-
-
-# b = mots[g]
-# print(b)
-# for i in g:
-#     print('*', end='')
-
-
-# repons = input('Antre let ki manke a :')
-# repons = repons.strip()
-# while len(repons.strip()) >= 2 or len(repons.strip()) == 0:
-#     print("saw tape a envalid, tanpri tape yon sel let :")
-#     repons = input('Antre let ki manke a :')
-# else:
-#     print('ok')
-
-# if repons in g:
-#     rekipere.extend([repons])
-#     index = g.find([repons])
-#     g = g[:index] + "_" + g[index + 1:]
-
-
-#         display = display[:index] + guess + display[index + 1:]
 
 
 # import random
